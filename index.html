@@ -4,64 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
-  <title>Presupuesto Familiar Café · Supabase</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <title>PrepChai | Presupuesto Familiar</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2';"></script>
   <style>
     :root {
-      --bg: #f7f0e9;
-      --panel: #fffaf5;
-      --panel-2: #f3e6d9;
-      --text: #483125;
-      --muted: #8a7163;
-      --line: #e5d3c0;
-      --primary: #8f6244;
-      --primary-2: #ba885f;
-      --success: #678b73;
-      --warning: #d39f5c;
-      --danger: #c46c67;
-      --shadow: 0 14px 36px rgba(92, 63, 45, .11);
-      --radius: 18px;
-      --sidebar-a: #6a4a38;
-      --sidebar-b: #9b735b;
-      --sidebar-c: #cb9d6b;
-      --hero-a: rgba(255,255,255,.58);
-      --hero-b: rgba(203,157,107,.20);
-      --hero-c: rgba(143,98,68,.10);
+      --bg: #f3f8fc;
+      --panel: #ffffff;
+      --panel-2: #f5faff;
+      --text: #102235;
+      --muted: #6f8298;
+      --line: #dbe8f3;
+      --primary: #4da3d9;
+      --primary-2: #7fc5ee;
+      --success: #35a48c;
+      --warning: #f0a75f;
+      --danger: #e56d78;
+      --shadow: 0 18px 46px rgba(44, 96, 140, .12);
+      --radius: 20px;
+      --sidebar-a: #0e2237;
+      --sidebar-b: #173555;
+      --sidebar-c: #245c8a;
+      --hero-a: rgba(255,255,255,.72);
+      --hero-b: rgba(127,197,238,.22);
+      --hero-c: rgba(77,163,217,.10);
     }
     body.dark {
-      --bg: #221813;
-      --panel: #30231d;
-      --panel-2: #281c17;
-      --text: #fff3e7;
-      --muted: #d7bfae;
-      --line: #594437;
-      --primary: #e2b17d;
-      --primary-2: #efc599;
-      --success: #96c5a1;
-      --warning: #f4c178;
-      --danger: #f29c97;
-      --sidebar-a: #19100d;
-      --sidebar-b: #3b2a22;
-      --sidebar-c: #7a5844;
+      --bg: #08131f;
+      --panel: #102033;
+      --panel-2: #0d1a2b;
+      --text: #eff7ff;
+      --muted: #a4bdd3;
+      --line: #20374f;
+      --primary: #79c8f2;
+      --primary-2: #a8ddfb;
+      --success: #63d4b7;
+      --warning: #f4c17a;
+      --danger: #ff97a3;
+      --sidebar-a: #050d16;
+      --sidebar-b: #0d1f31;
+      --sidebar-c: #143655;
       --hero-a: rgba(255,255,255,.04);
-      --hero-b: rgba(226,177,125,.16);
+      --hero-b: rgba(121,200,242,.16);
       --hero-c: rgba(255,255,255,.02);
-      --shadow: 0 14px 40px rgba(0, 0, 0, .35);
+      --shadow: 0 18px 46px rgba(0, 0, 0, .35);
     }
     body[data-palette="latte"] {
-      --bg: #fbf7f0; --panel: #ffffff; --panel-2: #f6efe7; --text: #4b3528; --muted: #8f7769; --line: #eadbce; --primary: #9f6f57; --primary-2: #bb8b73; --success: #6f9c7b; --warning: #d3a05c; --danger: #cb6d6d; --sidebar-a: #705243; --sidebar-b: #9a755f; --sidebar-c: #cfab8e;
+      --bg: #f6fbff; --panel: #ffffff; --panel-2: #f1f8ff; --text: #17304b; --muted: #7690a8; --line: #dbe9f4; --primary: #63b4e8; --primary-2: #95d3f5; --success: #4fbf9f; --warning: #f0b06b; --danger: #e67886; --sidebar-a: #13304b; --sidebar-b: #1d4d72; --sidebar-c: #6db6e8;
     }
     body.dark[data-palette="latte"] {
-      --bg: #241b16; --panel: #30241d; --panel-2: #271d18; --text: #fff3ea; --muted: #d9beac; --line: #5b453a; --primary: #deb089; --primary-2: #edc49f; --success: #90c79b; --warning: #f2be80; --danger: #f39b9b; --sidebar-a: #1d140f; --sidebar-b: #413025; --sidebar-c: #7a5e48;
+      --bg: #0a1521; --panel: #102132; --panel-2: #0d1a29; --text: #eef7ff; --muted: #abc2d6; --line: #22405b; --primary: #88d3ff; --primary-2: #b0e5ff; --success: #70d9bd; --warning: #f3c284; --danger: #ffa2ab; --sidebar-a: #060d15; --sidebar-b: #12273a; --sidebar-c: #1a4565;
     }
     body[data-palette="moka"] {
-      --bg: #efe6df; --panel: #fff7f0; --panel-2: #ebddd1; --text: #40261c; --muted: #7d6254; --line: #dcc7b7; --primary: #7b4b34; --primary-2: #9e6547; --success: #557b63; --warning: #ba8142; --danger: #b95a58; --sidebar-a: #482d22; --sidebar-b: #6b4330; --sidebar-c: #a56d48;
+      --bg: #eef6fb; --panel: #ffffff; --panel-2: #f3f9fe; --text: #12283c; --muted: #70849a; --line: #d7e5f0; --primary: #3388c4; --primary-2: #65afdf; --success: #2ea18b; --warning: #f1a55d; --danger: #e56b75; --sidebar-a: #0f2135; --sidebar-b: #15385a; --sidebar-c: #1d6395;
     }
     body.dark[data-palette="moka"] {
-      --bg: #1f1511; --panel: #2b1e18; --panel-2: #231913; --text: #ffeede; --muted: #d8b39a; --line: #543a2d; --primary: #d49a72; --primary-2: #e4af8c; --success: #87bc94; --warning: #efb772; --danger: #ef908b; --sidebar-a: #170f0c; --sidebar-b: #372319; --sidebar-c: #65402d;
+      --bg: #07121d; --panel: #0d1d2f; --panel-2: #0a1727; --text: #eef7ff; --muted: #9fb8cf; --line: #1e3650; --primary: #6bc0f3; --primary-2: #9ed8fb; --success: #63d0b3; --warning: #f6be78; --danger: #ff95a1; --sidebar-a: #040b13; --sidebar-b: #0c2032; --sidebar-c: #15486b;
     }
     body[data-palette="cafe"] {
-      --bg: #f7f1ea; --panel: #fffaf4; --panel-2: #f3e9df; --text: #452b1f; --muted: #8a6f61; --line: #e8d8ca; --primary: #8a5a44; --primary-2: #b37a5f; --success: #5c8c6b; --warning: #c98f4a; --danger: #bb5e5e; --sidebar-a: #5d3b2e; --sidebar-b: #7f5742; --sidebar-c: #b8845f;
+      --bg: #f4fbff; --panel: #ffffff; --panel-2: #f7fcff; --text: #0f2436; --muted: #70879a; --line: #ddeaf4; --primary: #59aedf; --primary-2: #8cd0f2; --success: #43b89d; --warning: #f4b16c; --danger: #e97884; --sidebar-a: #10273d; --sidebar-b: #184365; --sidebar-c: #2c7fb1;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -157,7 +157,7 @@
     .legend-color { width:9px; height:9px; border-radius:3px; flex:0 0 auto; }
     .truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .alerts { display:grid; gap:10px; }
-    .alert { border:1px solid var(--line); border-left:4px solid var(--warning); border-radius:12px; padding:12px 13px; background: var(--panel-2); }
+    .alert { border:1px solid var(--line); border:1px solid var(--line); border-left:4px solid var(--warning); border-radius:12px; padding:12px 13px; background: var(--panel-2); }
     .alert.good { border-left-color: var(--success); }
     .alert.bad { border-left-color: var(--danger); }
     .alert strong { font-size:13px; display:block; margin-bottom:3px; }
@@ -200,7 +200,7 @@
     .member-item { display:flex; justify-content:space-between; gap:10px; align-items:center; padding:10px 12px; border-radius:12px; background: var(--panel-2); border:1px solid var(--line); }
     .member-item strong { display:block; }
     .member-item small { color: var(--muted); }
-    .toast { position: fixed; right:22px; bottom:22px; background: #3a281f; color:white; padding:12px 15px; border-radius:12px; box-shadow:0 15px 40px rgba(0,0,0,.25); opacity:0; transform: translateY(12px); pointer-events:none; transition:.2s; z-index:100; }
+    .toast { position: fixed; right:22px; bottom:22px; background: #12314d; color:white; padding:12px 15px; border-radius:12px; box-shadow:0 15px 40px rgba(0,0,0,.25); opacity:0; transform: translateY(12px); pointer-events:none; transition:.2s; z-index:100; }
     .toast.show { opacity:1; transform: translateY(0); }
     .mobile-nav { display:none; }
     .muted { color: var(--muted); }
@@ -222,39 +222,40 @@
     <div class="center-shell">
       <div class="auth-shell">
         <article class="card brand-card">
-          <span class="brand-badge">☕ Presupuesto familiar compartido</span>
-          <h1>Dashboard de pareja con estilo de cafetería</h1>
-          <p>Esta versión ya está preparada para <strong>login</strong>, <strong>sincronización con Supabase</strong>, publicación en <strong>GitHub Pages</strong> y una marca de agua ilustrada basada en su perrito.</p>
+          <span class="brand-badge">Finanzas compartidas</span>
+          <h1>Control financiero claro, elegante y compartido</h1>
+          <p>Organicen ingresos, gastos, deudas y metas en un solo panel compartido. El diseño fue refinado para ofrecer una experiencia más limpia, profesional y agradable en computadora o celular.</p>
           <div class="brand-pills">
-            <span>🐶 perrito marca de agua</span>
-            <span>🔐 login con correo</span>
-            <span>🔄 sincronización entre dos usuarios</span>
-            <span>☁️ listo para GitHub Pages</span>
+            <span>📊 panel ejecutivo</span>
+            <span>🔐 acceso seguro</span>
+            <span>🔄 sincronización en tiempo real</span>
+            <span>📱 diseño adaptable</span>
           </div>
           <div class="watermark-art">
             <div class="brand-note">
-              <strong>Pega aquí tu conexión de Supabase</strong>
-              <div class="helper">Busca en este HTML las constantes <code>SUPABASE_URL</code> y <code>SUPABASE_ANON_KEY</code>. Ahí pegas el <em>Project URL</em> y la <em>Publishable key</em>.</div>
+              <strong>Visibilidad financiera en un solo lugar</strong>
+              <div class="helper">Resumen mensual, control de presupuesto, seguimiento de deudas y colaboración para ambos usuarios desde una misma cuenta compartida por hogar.</div>
             </div>
           </div>
         </article>
 
         <article class="card auth-card">
           <div>
-            <h2>Entrar o registrarse</h2>
-            <p>Usen el mismo proyecto de Supabase para que ambos vean los mismos movimientos, presupuestos y deudas.</p>
+            <h2>Iniciar sesión</h2>
+            <p>Accede a tu tablero compartido para consultar movimientos, presupuesto y compromisos financieros.</p>
           </div>
-          <div class="hint-box">Si al registrarse no entra directo, revisa si en Supabase está activa la confirmación por correo. Para algo rápido entre ustedes dos, normalmente conviene <strong>crear los usuarios manualmente</strong> en <strong>Authentication → Users → Add user</strong> con <strong>Auto Confirm User</strong>.</div>
+          <div class="hint-box">Ingresa con el correo y la contraseña autorizados para tu hogar. Si todavía no existe el acceso, primero crea el usuario correspondiente en Supabase Authentication.</div>
           <div id="configWarning" class="hint-box hidden">Aún faltan tus credenciales de Supabase. Edita este archivo y pega tu <strong>Project URL</strong> y tu <strong>Publishable key</strong>.</div>
-          <form id="authForm" class="form-grid">
+          <div id="authError" class="hint-box hidden" style="border-color:var(--danger);color:var(--danger);"></div>
+          <form id="authForm" class="form-grid" onsubmit="return false;">
             <div class="field full"><label>Correo</label><input id="authEmail" type="email" placeholder="tu_correo@ejemplo.com" required /></div>
             <div class="field full"><label>Contraseña</label><input id="authPassword" type="password" placeholder="Mínimo 6 caracteres" required /></div>
             <div class="field full" style="display:flex; gap:10px; flex-wrap:wrap;">
-              <button type="submit" class="btn primary" id="loginBtn">Iniciar sesión</button>
+              <button type="button" class="btn primary" id="loginBtn">Iniciar sesión</button>
               <button type="button" class="btn" id="registerBtn">Crear usuario</button>
             </div>
           </form>
-          <div class="helper">Sugerencia: primero crea o activa tu usuario y el de tu novia; luego uno de ustedes crea el hogar y desde la sección <strong>Datos y sincronización</strong> invita al otro por correo.</div>
+          <div class="helper">Si es tu primer ingreso, crea el hogar compartido y luego agrega al segundo usuario desde la sección de configuración.</div>
         </article>
       </div>
     </div>
@@ -267,11 +268,11 @@
   <section id="setupScreen" class="screen hidden">
     <div class="center-shell">
       <article class="card" style="width:min(620px, 100%);">
-        <h2 style="margin-top:0;">Crear hogar compartido</h2>
-        <p class="muted">Tu usuario ya inició sesión, pero todavía no pertenece a un hogar. Crea uno ahora; después podrás invitar a tu novia por correo desde la app.</p>
-        <div class="hint-box">Ejemplo de nombre: <strong>Hogar González Rossel</strong> o <strong>Presupuesto Café en Pareja</strong>.</div>
+        <h2 style="margin-top:0;">Crear espacio compartido</h2>
+        <p class="muted">Tu usuario ya inició sesión, pero todavía no pertenece a un espacio compartido. Créalo ahora y después agrega al segundo usuario desde la aplicación.</p>
+        <div class="hint-box">Ejemplo de nombre: <strong>Presupuesto Familiar</strong> o <strong>Finanzas del Hogar</strong>.</div>
         <form id="setupForm" class="form-grid" style="margin-top:14px;">
-          <div class="field full"><label>Nombre del hogar</label><input id="householdName" required placeholder="Hogar González Rossel" /></div>
+          <div class="field full"><label>Nombre del espacio</label><input id="householdName" required placeholder="Presupuesto Familiar" /></div>
           <div class="field full" style="display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn primary" type="submit">Crear hogar</button>
             <button class="btn ghost" type="button" id="setupLogoutBtn">Cerrar sesión</button>
@@ -284,19 +285,19 @@
   <section id="appScreen" class="screen hidden">
     <div class="app">
       <aside class="sidebar">
-        <div class="brand"><div class="brand-icon">☕</div><div><strong id="brandTitle">Presupuesto Familiar Café</strong><span id="brandSubtitle">Sincronizado con Supabase</span></div></div>
+        <div class="brand"><div class="brand-icon">☕</div><div><strong id="brandTitle">PrepChai</strong><span id="brandSubtitle">Panel financiero compartido</span></div></div>
         <nav class="nav">
           <button class="nav-btn active" data-view="dashboard"><span class="ico">▦</span> Dashboard</button>
           <button class="nav-btn" data-view="movements"><span class="ico">↕</span> Movimientos</button>
           <button class="nav-btn" data-view="budget"><span class="ico">◎</span> Presupuesto</button>
           <button class="nav-btn" data-view="debts"><span class="ico">◫</span> Deudas</button>
-          <button class="nav-btn" data-view="data"><span class="ico">⚙</span> Datos y sincronización</button>
+          <button class="nav-btn" data-view="data"><span class="ico">⚙</span> Configuración</button>
         </nav>
         <div class="side-note">
           <div><strong id="householdLabel">Hogar</strong></div>
           <div id="userEmailLabel" style="margin-top:4px;"></div>
           <div class="member-chip" id="memberRoleLabel">owner</div>
-          <div style="margin-top:10px;">Esta app usa el mismo presupuesto para ambos usuarios. Los cambios se sincronizan automáticamente.</div>
+          <div style="margin-top:10px;">Este panel comparte la misma información entre los usuarios autorizados del hogar.</div>
           <button class="btn small" id="logoutBtn" style="margin-top:12px; width:100%; background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.18); color:white;">Cerrar sesión</button>
         </div>
       </aside>
@@ -307,10 +308,10 @@
           <div class="top-actions">
             <input class="control" id="monthPicker" type="month" aria-label="Seleccionar mes" />
             <select class="control" id="quickThemePreset" aria-label="Tema visual">
-              <option value="perrito">Perrito café</option>
-              <option value="cafe">Café clásico</option>
-              <option value="latte">Latte suave</option>
-              <option value="moka">Moka intenso</option>
+              <option value="perrito">Celeste</option>
+              <option value="cafe">Hielo</option>
+              <option value="latte">Niebla</option>
+              <option value="moka">Marino</option>
             </select>
             <button class="btn primary" id="quickAdd">＋ Movimiento</button>
             <button class="btn" id="themeToggle" title="Cambiar claro/oscuro">☾</button>
@@ -320,10 +321,10 @@
         <section id="dashboard" class="view active">
           <article class="card hero-card">
             <div class="hero-copy">
-              <span class="hero-badge">🐶 Marca de agua incluida</span>
-              <h2 id="heroBoardName">Presupuesto Familiar Café</h2>
-              <p id="heroBoardDescription">Una miniapp cálida y sencilla para que ustedes dos lleven gastos, ahorro y deudas con estética de cafetería y su perrito como sello visual.</p>
-              <div class="hero-pills"><span>☕ ambiente cafetería</span><span>🐶 perrito ilustrado</span><span>🎨 temas personalizables</span><span>🔄 sync en tiempo real</span></div>
+              <span class="hero-badge">Resumen ejecutivo</span>
+              <h2 id="heroBoardName">PrepChai</h2>
+              <p id="heroBoardDescription">Un espacio centralizado para administrar presupuesto, gastos, ingresos y deudas con una experiencia visual más premium y ordenada.</p>
+              <div class="hero-pills"><span>📈 control mensual</span><span>💳 seguimiento de deudas</span><span>🎨 apariencia personalizable</span><span>🔄 sincronización inmediata</span></div>
             </div>
             <div class="hero-watermark"></div>
           </article>
@@ -390,13 +391,13 @@
               <div class="form-grid">
                 <div class="field full"><label>Nombre del tablero</label><input id="settingName" /></div>
                 <div class="field full"><label>Ingreso mensual planeado (MXN)</label><input id="settingIncome" type="number" min="0" step="0.01" /></div>
-                <div class="field full"><label>Tema visual</label><select id="settingThemePreset"><option value="perrito">Perrito café</option><option value="cafe">Café clásico</option><option value="latte">Latte suave</option><option value="moka">Moka intenso</option></select></div>
+                <div class="field full"><label>Tema visual</label><select id="settingThemePreset"><option value="perrito">Celeste</option><option value="cafe">Hielo</option><option value="latte">Niebla</option><option value="moka">Marino</option></select></div>
               </div>
               <button class="btn primary" id="saveSettings">Guardar configuración</button>
             </article>
             <article class="card data-card">
-              <h3>Sincronización e invitación</h3>
-              <p>Invita al otro usuario con el mismo correo que ya tiene registrado en Supabase. Debe existir primero como usuario.</p>
+              <h3>Miembros y acceso</h3>
+              <p>Agrega al segundo usuario autorizado con el mismo correo que ya exista en el sistema.</p>
               <div class="form-grid">
                 <div class="field full"><label>Correo a invitar</label><input id="inviteEmail" type="email" placeholder="correo_de_tu_novia@ejemplo.com" /></div>
               </div>
@@ -410,10 +411,10 @@
             </article>
             <article class="card data-card">
               <h3>Exportación y utilidades</h3>
-              <p>Descarga los movimientos del mes seleccionado o fuerza una recarga desde Supabase.</p>
+              <p>Descarga los movimientos del mes seleccionado o actualiza manualmente la información.</p>
               <button class="btn" id="exportCsv">Descargar CSV</button>
               <button class="btn" id="reloadBtn">Recargar datos</button>
-              <div class="hint-box" style="margin-top:12px;">Tu perrito está integrado como marca de agua visual dentro del dashboard y de la pantalla de acceso.</div>
+              <div class="hint-box" style="margin-top:12px;">Los cambios se guardan y comparten automáticamente entre los miembros autorizados del hogar.</div>
             </article>
           </div>
         </section>
@@ -495,18 +496,19 @@
   // ============================================================
   // 1) PEGA AQUÍ TUS CREDENCIALES DE SUPABASE
   // ============================================================
-  const SUPABASE_URL = 'sb_publishable_yK6wf-oD4-JJu1WaRa8I1w_CxJZgH4D';
-  const SUPABASE_ANON_KEY = 'https://xvwwpfstdyqcsimzrtyv.supabase.co';
+  const SUPABASE_URL = 'https://xvwwpfstdyqcsimzrtyv.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_yK6wf-oD4-JJu1WaRa8I1w_CxJZgH4D';
   // ============================================================
 
   const CONFIG_READY = !SUPABASE_URL.includes('PEGA_AQUI') && !SUPABASE_ANON_KEY.includes('PEGA_AQUI');
-  const supabase = CONFIG_READY ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+  const SDK_READY = Boolean(window.supabase && typeof window.supabase.createClient === 'function');
+  const supabase = CONFIG_READY && SDK_READY ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
   const UI_STORAGE_KEY = 'presupuesto_familiar_ui_state_v1';
   const currentMonth = new Date().toISOString().slice(0,7);
   const today = new Date().toISOString().slice(0,10);
   const palette = ['#8f6244','#678b73','#d39f5c','#c46c67','#9f6f57','#23a4b8','#a46c2b','#60758e'];
-  const themeLabels = { perrito:'Perrito café', cafe:'Café clásico', latte:'Latte suave', moka:'Moka intenso' };
+  const themeLabels = { perrito:'Celeste', cafe:'Hielo', latte:'Niebla', moka:'Marino' };
 
   const budgetSeed = [
     {category:'Inversión/Ahorro',concept:'Fondo de emergencia',amount:0,active:true},
@@ -546,7 +548,7 @@
     household: null,
     memberRole: null,
     members: [],
-    settings: { board_name: 'Presupuesto Familiar Café', planned_income: 32135, theme_preset: 'perrito' },
+    settings: { board_name: 'PrepChai', planned_income: 32135, theme_preset: 'perrito' },
     budgets: [],
     transactions: [],
     debts: []
@@ -585,12 +587,23 @@
     $('#themeToggle').textContent = state.themeMode === 'dark' ? '☀' : '☾';
     saveUi();
   }
+  function showAuthError(message) {
+    const box = $('#authError');
+    box.textContent = message || '';
+    box.classList.toggle('hidden', !message);
+  }
   function ensureConfigured() {
     $('#configWarning').classList.toggle('hidden', CONFIG_READY);
-    if (!CONFIG_READY) {
-      $('#loginBtn').disabled = true;
-      $('#registerBtn').disabled = true;
+    if (!SDK_READY) {
+      showAuthError('No se pudo cargar la librería de Supabase. Recarga con Ctrl + F5. Si continúa, prueba otra red o desactiva temporalmente el bloqueador de contenido.');
+    } else if (!CONFIG_READY) {
+      showAuthError('Faltan el Project URL o la Publishable key dentro del archivo index.html.');
+    } else {
+      showAuthError('');
     }
+    const disabled = !CONFIG_READY || !SDK_READY;
+    $('#loginBtn').disabled = disabled;
+    $('#registerBtn').disabled = disabled;
   }
   function compactMoney(n) { return new Intl.NumberFormat('es-MX', {style:'currency',currency:'MXN',notation:'compact',maximumFractionDigits:1}).format(n); }
   function formatDate(s) { if(!s) return '—'; const [y,m,d]=s.split('-'); return `${d}/${m}/${y}`; }
@@ -611,7 +624,7 @@
       movements:['Movimientos','Registra y consulta ingresos y gastos.'],
       budget:['Presupuesto','Define cuánto planean gastar en cada concepto.'],
       debts:['Deudas','Controlen saldos, avances y pagos mensuales.'],
-      data:['Datos y sincronización','Invita miembros, ajusta configuración y exporta datos.']
+      data:['Configuración','Administra usuarios, apariencia y exportación de datos.']
     };
     $('#pageTitle').textContent = labels[view][0]; $('#pageSubtitle').textContent = labels[view][1];
     if (view==='dashboard') requestAnimationFrame(drawCharts);
@@ -622,16 +635,16 @@
     $('#monthPicker').value = state.selectedMonth;
     $('#quickThemePreset').value = state.settings.theme_preset || 'perrito';
     $('#settingThemePreset').value = state.settings.theme_preset || 'perrito';
-    $('#settingName').value = state.settings.board_name || 'Presupuesto Familiar Café';
+    $('#settingName').value = state.settings.board_name || 'PrepChai';
     $('#settingIncome').value = num(state.settings.planned_income);
     persistTheme();
-    document.title = state.settings.board_name || 'Presupuesto Familiar Café';
-    $('#brandTitle').textContent = state.settings.board_name || 'Presupuesto Familiar Café';
-    $('#heroBoardName').textContent = state.settings.board_name || 'Presupuesto Familiar Café';
+    document.title = state.settings.board_name || 'PrepChai';
+    $('#brandTitle').textContent = state.settings.board_name || 'PrepChai';
+    $('#heroBoardName').textContent = state.settings.board_name || 'PrepChai';
     $('#householdLabel').textContent = state.household?.name || 'Hogar';
     $('#userEmailLabel').textContent = state.profile?.email || '';
     $('#memberRoleLabel').textContent = state.memberRole || 'member';
-    $('#brandSubtitle').textContent = 'Sincronizado con Supabase';
+    $('#brandSubtitle').textContent = 'Panel financiero compartido';
     renderDashboard(); renderMovements(); renderBudget(); renderDebts(); renderData(); renderCategoryList();
   }
 
@@ -717,7 +730,7 @@
     ensureConfigured();
     persistTheme();
     bindUi();
-    if (!CONFIG_READY) { showScreen('authScreen'); return; }
+    if (!CONFIG_READY || !SDK_READY) { showScreen('authScreen'); return; }
     setLoading('Conectando...', 'Revisando tu sesión y preparando el tablero.');
     const { data: { session } } = await supabase.auth.getSession();
     await handleSession(session);
@@ -755,7 +768,7 @@
       showScreen('appScreen');
       return;
     }
-    state.settings = settingsRes.data || { board_name:'Presupuesto Familiar Café', planned_income:32135, theme_preset:'perrito', household_id: hid };
+    state.settings = settingsRes.data || { board_name:'PrepChai', planned_income:32135, theme_preset:'perrito', household_id: hid };
     state.budgets = budgetsRes.data || [];
     state.transactions = txRes.data || [];
     state.debts = debtsRes.data || [];
@@ -773,7 +786,7 @@
     const hid = state.household.id;
     const budgetsPayload = budgetSeed.map(b => ({ household_id: hid, category: b.category, concept: b.concept, amount: b.amount, active: b.active }));
     const debtsPayload = debtSeed.map(d => ({ household_id: hid, owner_label: d.owner_label, name: d.name, original_amount: d.original_amount, paid_amount: d.paid_amount, monthly_amount: d.monthly_amount }));
-    const settingsPayload = { household_id: hid, board_name: 'Presupuesto Familiar Café', planned_income: 32135, theme_preset: 'perrito' };
+    const settingsPayload = { household_id: hid, board_name: 'PrepChai', planned_income: 32135, theme_preset: 'perrito' };
     await supabase.from('app_settings').upsert(settingsPayload, { onConflict: 'household_id' });
     await supabase.from('budgets').insert(budgetsPayload);
     await supabase.from('debts').insert(debtsPayload);
@@ -783,11 +796,11 @@
     unsubscribeRealtime();
     if (!state.household?.id) return;
     realtimeChannel = supabase.channel(`sync-${state.household.id}`)
-      .on('postgres_changes', { event:'*', schema:'public', table:'app_settings', filter:`household_id=eq.${state.household.id}` }, () => debounceRemoteRefresh())
-      .on('postgres_changes', { event:'*', schema:'public', table:'budgets', filter:`household_id=eq.${state.household.id}` }, () => debounceRemoteRefresh())
-      .on('postgres_changes', { event:'*', schema:'public', table:'transactions', filter:`household_id=eq.${state.household.id}` }, () => debounceRemoteRefresh())
-      .on('postgres_changes', { event:'*', schema:'public', table:'debts', filter:`household_id=eq.${state.household.id}` }, () => debounceRemoteRefresh())
-      .on('postgres_changes', { event:'*', schema:'public', table:'household_members', filter:`household_id=eq.${state.household.id}` }, () => debounceRemoteRefresh())
+      .on('postgres_changes', { event:'*', schema:'public', table:'app_settings' }, () => debounceRemoteRefresh())
+      .on('postgres_changes', { event:'*', schema:'public', table:'budgets' }, () => debounceRemoteRefresh())
+      .on('postgres_changes', { event:'*', schema:'public', table:'transactions' }, () => debounceRemoteRefresh())
+      .on('postgres_changes', { event:'*', schema:'public', table:'debts' }, () => debounceRemoteRefresh())
+      .on('postgres_changes', { event:'*', schema:'public', table:'household_members' }, () => debounceRemoteRefresh())
       .subscribe();
   }
   function unsubscribeRealtime() { if (realtimeChannel && supabase) { supabase.removeChannel(realtimeChannel); realtimeChannel = null; } }
@@ -806,7 +819,7 @@
   async function inviteByEmail(email) { const { error } = await supabase.rpc('invite_member_by_email', { target_email: email, target_role: 'member' }); if (error) throw error; }
 
   async function saveSettingsRemote() {
-    const payload = { household_id: state.household.id, board_name: $('#settingName').value.trim() || 'Presupuesto Familiar Café', planned_income: num($('#settingIncome').value), theme_preset: $('#settingThemePreset').value || 'perrito' };
+    const payload = { household_id: state.household.id, board_name: $('#settingName').value.trim() || 'PrepChai', planned_income: num($('#settingIncome').value), theme_preset: $('#settingThemePreset').value || 'perrito' };
     const { error } = await supabase.from('app_settings').upsert(payload, { onConflict: 'household_id' });
     if (error) throw error;
     state.settings = payload;
@@ -864,8 +877,38 @@
     $('#exportCsv').addEventListener('click',exportCsv);
     window.addEventListener('resize',()=>{ clearTimeout(window.__resize); window.__resize=setTimeout(drawCharts,100); });
 
-    $('#authForm').addEventListener('submit', async e => { e.preventDefault(); try { setLoading('Iniciando sesión...', 'Validando tus credenciales.'); await signIn($('#authEmail').value.trim(), $('#authPassword').value); toast('Sesión iniciada'); } catch(err) { console.error(err); toast(err.message || 'No se pudo iniciar sesión'); showScreen('authScreen'); } });
-    $('#registerBtn').addEventListener('click', async () => { try { setLoading('Creando usuario...', 'Registrando cuenta en Supabase.'); await signUp($('#authEmail').value.trim(), $('#authPassword').value); toast('Usuario creado. Si no inicia automáticamente, revisa tu correo o créalo manualmente en Authentication.'); showScreen('authScreen'); } catch(err) { console.error(err); toast(err.message || 'No se pudo crear el usuario'); showScreen('authScreen'); } });
+    $('#authForm').addEventListener('submit', e => e.preventDefault());
+    $('#loginBtn').addEventListener('click', async () => {
+      const email = $('#authEmail').value.trim();
+      const password = $('#authPassword').value;
+      if (!email || !password) return showAuthError('Escribe correo y contraseña.');
+      try {
+        showAuthError('');
+        setLoading('Iniciando sesión...', 'Validando tus credenciales.');
+        await signIn(email, password);
+        toast('Sesión iniciada');
+      } catch(err) {
+        console.error(err);
+        showScreen('authScreen');
+        showAuthError(err.message || 'No se pudo iniciar sesión. Revisa correo, contraseña y credenciales de Supabase.');
+      }
+    });
+    $('#registerBtn').addEventListener('click', async () => {
+      const email = $('#authEmail').value.trim();
+      const password = $('#authPassword').value;
+      if (!email || !password) return showAuthError('Escribe correo y contraseña.');
+      try {
+        showAuthError('');
+        setLoading('Creando usuario...', 'Registrando cuenta en Supabase.');
+        await signUp(email, password);
+        toast('Usuario creado. Si no inicia automáticamente, revisa tu correo o créalo manualmente en Authentication.');
+        showScreen('authScreen');
+      } catch(err) {
+        console.error(err);
+        showScreen('authScreen');
+        showAuthError(err.message || 'No se pudo crear el usuario.');
+      }
+    });
     $('#setupForm').addEventListener('submit', async e => { e.preventDefault(); try { setLoading('Creando hogar...', 'Generando el espacio compartido.'); await createHousehold($('#householdName').value.trim()); await handleSession((await supabase.auth.getSession()).data.session); toast('Hogar creado'); } catch(err) { console.error(err); toast(err.message || 'No se pudo crear el hogar'); showScreen('setupScreen'); } });
     $('#setupLogoutBtn').addEventListener('click', async () => { try { await signOut(); showScreen('authScreen'); } catch(err) { toast(err.message || 'No se pudo cerrar sesión'); } });
     $('#logoutBtn').addEventListener('click', async () => { try { await signOut(); showScreen('authScreen'); toast('Sesión cerrada'); } catch(err) { toast(err.message || 'No se pudo cerrar sesión'); } });
