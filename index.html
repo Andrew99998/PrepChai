@@ -48,19 +48,19 @@
       --hero-c: rgba(255,255,255,.02);
       --shadow: 0 18px 46px rgba(0, 0, 0, .35);
     }
-    body[data-palette="latte"] {
+    body[data-palette="niebla"] {
       --bg: #f6fbff; --panel: #ffffff; --panel-2: #f1f8ff; --text: #17304b; --muted: #7690a8; --line: #dbe9f4; --primary: #63b4e8; --primary-2: #95d3f5; --success: #4fbf9f; --warning: #f0b06b; --danger: #e67886; --sidebar-a: #13304b; --sidebar-b: #1d4d72; --sidebar-c: #6db6e8;
     }
-    body.dark[data-palette="latte"] {
+    body.dark[data-palette="niebla"] {
       --bg: #0a1521; --panel: #102132; --panel-2: #0d1a29; --text: #eef7ff; --muted: #abc2d6; --line: #22405b; --primary: #88d3ff; --primary-2: #b0e5ff; --success: #70d9bd; --warning: #f3c284; --danger: #ffa2ab; --sidebar-a: #060d15; --sidebar-b: #12273a; --sidebar-c: #1a4565;
     }
-    body[data-palette="moka"] {
+    body[data-palette="marino"] {
       --bg: #eef6fb; --panel: #ffffff; --panel-2: #f3f9fe; --text: #12283c; --muted: #70849a; --line: #d7e5f0; --primary: #3388c4; --primary-2: #65afdf; --success: #2ea18b; --warning: #f1a55d; --danger: #e56b75; --sidebar-a: #0f2135; --sidebar-b: #15385a; --sidebar-c: #1d6395;
     }
-    body.dark[data-palette="moka"] {
+    body.dark[data-palette="marino"] {
       --bg: #07121d; --panel: #0d1d2f; --panel-2: #0a1727; --text: #eef7ff; --muted: #9fb8cf; --line: #1e3650; --primary: #6bc0f3; --primary-2: #9ed8fb; --success: #63d0b3; --warning: #f6be78; --danger: #ff95a1; --sidebar-a: #040b13; --sidebar-b: #0c2032; --sidebar-c: #15486b;
     }
-    body[data-palette="cafe"] {
+    body[data-palette="hielo"] {
       --bg: #f4fbff; --panel: #ffffff; --panel-2: #f7fcff; --text: #0f2436; --muted: #70879a; --line: #ddeaf4; --primary: #59aedf; --primary-2: #8cd0f2; --success: #43b89d; --warning: #f4b16c; --danger: #e97884; --sidebar-a: #10273d; --sidebar-b: #184365; --sidebar-c: #2c7fb1;
     }
     * { box-sizing: border-box; }
@@ -217,7 +217,7 @@
     @media (max-width: 650px) { .topbar { display:grid; } .top-actions { justify-content:stretch; display:grid; grid-template-columns:1fr 1fr auto auto; } .top-actions .control { min-width:0; } .kpis { grid-template-columns: 1fr 1fr; gap:12px; } .kpi { min-height:120px; padding:15px; } .kpi:last-child { grid-column:1/-1; } .debt-grid, .data-grid, .form-grid { grid-template-columns:1fr; } .field.full { grid-column:auto; } .legend { grid-template-columns:1fr; } .budget-summary { grid-template-columns:1fr 1fr; gap:10px; } table { min-width: 720px; } }
   </style>
 </head>
-<body data-palette="perrito">
+<body data-palette="celeste">
   <section id="authScreen" class="screen">
     <div class="center-shell">
       <div class="auth-shell">
@@ -308,10 +308,10 @@
           <div class="top-actions">
             <input class="control" id="monthPicker" type="month" aria-label="Seleccionar mes" />
             <select class="control" id="quickThemePreset" aria-label="Tema visual">
-              <option value="perrito">Celeste</option>
-              <option value="cafe">Hielo</option>
-              <option value="latte">Niebla</option>
-              <option value="moka">Marino</option>
+              <option value="celeste">Celeste</option>
+              <option value="hielo">Hielo</option>
+              <option value="niebla">Niebla</option>
+              <option value="marino">Marino</option>
             </select>
             <button class="btn primary" id="quickAdd">＋ Movimiento</button>
             <button class="btn" id="themeToggle" title="Cambiar claro/oscuro">☾</button>
@@ -391,7 +391,7 @@
               <div class="form-grid">
                 <div class="field full"><label>Nombre del tablero</label><input id="settingName" /></div>
                 <div class="field full"><label>Ingreso mensual planeado (MXN)</label><input id="settingIncome" type="number" min="0" step="0.01" /></div>
-                <div class="field full"><label>Tema visual</label><select id="settingThemePreset"><option value="perrito">Celeste</option><option value="cafe">Hielo</option><option value="latte">Niebla</option><option value="moka">Marino</option></select></div>
+                <div class="field full"><label>Tema visual</label><select id="settingThemePreset"><option value="celeste">Celeste</option><option value="hielo">Hielo</option><option value="niebla">Niebla</option><option value="marino">Marino</option></select></div>
               </div>
               <button class="btn primary" id="saveSettings">Guardar configuración</button>
             </article>
@@ -496,8 +496,8 @@
   // ============================================================
   // 1) PEGA AQUÍ TUS CREDENCIALES DE SUPABASE
   // ============================================================
-  const SUPABASE_URL = 'https://xvwwpfstdyqcsimzrtyv.supabase.co';
-  const SUPABASE_ANON_KEY = 'sb_publishable_yK6wf-oD4-JJu1WaRa8I1w_CxJZgH4D';
+  const SUPABASE_URL = 'PEGA_AQUI_TU_PROJECT_URL';
+  const SUPABASE_ANON_KEY = 'PEGA_AQUI_TU_PUBLISHABLE_KEY';
   // ============================================================
 
   const CONFIG_READY = !SUPABASE_URL.includes('PEGA_AQUI') && !SUPABASE_ANON_KEY.includes('PEGA_AQUI');
@@ -508,7 +508,7 @@
   const currentMonth = new Date().toISOString().slice(0,7);
   const today = new Date().toISOString().slice(0,10);
   const palette = ['#8f6244','#678b73','#d39f5c','#c46c67','#9f6f57','#23a4b8','#a46c2b','#60758e'];
-  const themeLabels = { perrito:'Celeste', cafe:'Hielo', latte:'Niebla', moka:'Marino' };
+  const themeLabels = { celeste:'Celeste', hielo:'Hielo', niebla:'Niebla', marino:'Marino' };
 
   const budgetSeed = [
     {category:'Inversión/Ahorro',concept:'Fondo de emergencia',amount:0,active:true},
@@ -548,7 +548,7 @@
     household: null,
     memberRole: null,
     members: [],
-    settings: { board_name: 'PrepChai', planned_income: 32135, theme_preset: 'perrito' },
+    settings: { board_name: 'PrepChai', planned_income: 32135, theme_preset: 'celeste' },
     budgets: [],
     transactions: [],
     debts: []
@@ -583,7 +583,7 @@
   function setLoading(title, text) { $('#loadingTitle').textContent = title; $('#loadingText').textContent = text; showScreen('loadingScreen'); }
   function persistTheme() {
     document.body.classList.toggle('dark', state.themeMode === 'dark');
-    document.body.dataset.palette = state.settings.theme_preset || 'perrito';
+    document.body.dataset.palette = state.settings.theme_preset || 'celeste';
     $('#themeToggle').textContent = state.themeMode === 'dark' ? '☀' : '☾';
     saveUi();
   }
@@ -633,8 +633,8 @@
 
   function renderAll() {
     $('#monthPicker').value = state.selectedMonth;
-    $('#quickThemePreset').value = state.settings.theme_preset || 'perrito';
-    $('#settingThemePreset').value = state.settings.theme_preset || 'perrito';
+    $('#quickThemePreset').value = state.settings.theme_preset || 'celeste';
+    $('#settingThemePreset').value = state.settings.theme_preset || 'celeste';
     $('#settingName').value = state.settings.board_name || 'PrepChai';
     $('#settingIncome').value = num(state.settings.planned_income);
     persistTheme();
@@ -779,7 +779,7 @@
       showScreen('appScreen');
       return;
     }
-    state.settings = settingsRes.data || { board_name:'PrepChai', planned_income:32135, theme_preset:'perrito', household_id: hid };
+    state.settings = settingsRes.data || { board_name:'PrepChai', planned_income:32135, theme_preset:'celeste', household_id: hid };
     state.budgets = budgetsRes.data || [];
     state.transactions = txRes.data || [];
     state.debts = debtsRes.data || [];
@@ -797,7 +797,7 @@
     const hid = state.household.id;
     const budgetsPayload = budgetSeed.map(b => ({ household_id: hid, category: b.category, concept: b.concept, amount: b.amount, active: b.active }));
     const debtsPayload = debtSeed.map(d => ({ household_id: hid, owner_label: d.owner_label, name: d.name, original_amount: d.original_amount, paid_amount: d.paid_amount, monthly_amount: d.monthly_amount }));
-    const settingsPayload = { household_id: hid, board_name: 'PrepChai', planned_income: 32135, theme_preset: 'perrito' };
+    const settingsPayload = { household_id: hid, board_name: 'PrepChai', planned_income: 32135, theme_preset: 'celeste' };
     await supabase.from('app_settings').upsert(settingsPayload, { onConflict: 'household_id' });
     await supabase.from('budgets').insert(budgetsPayload);
     await supabase.from('debts').insert(debtsPayload);
@@ -830,7 +830,7 @@
   async function inviteByEmail(email) { const { error } = await supabase.rpc('invite_member_by_email', { target_email: email, target_role: 'member' }); if (error) throw error; }
 
   async function saveSettingsRemote() {
-    const payload = { household_id: state.household.id, board_name: $('#settingName').value.trim() || 'PrepChai', planned_income: num($('#settingIncome').value), theme_preset: $('#settingThemePreset').value || 'perrito' };
+    const payload = { household_id: state.household.id, board_name: $('#settingName').value.trim() || 'PrepChai', planned_income: num($('#settingIncome').value), theme_preset: $('#settingThemePreset').value || 'celeste' };
     const { error } = await supabase.from('app_settings').upsert(payload, { onConflict: 'household_id' });
     if (error) throw error;
     state.settings = payload;
@@ -880,8 +880,8 @@
     $$('[data-close]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.close).close()));
     $('#quickAdd').addEventListener('click',()=>openMovement()); $('#addMovement').addEventListener('click',()=>openMovement()); $('#addBudget').addEventListener('click',()=>openBudget()); $('#addDebt').addEventListener('click',()=>openDebt());
     $('#monthPicker').addEventListener('change',e=>{ state.selectedMonth = e.target.value || currentMonth; saveUi(); renderAll(); });
-    $('#quickThemePreset').addEventListener('change',e=>{ state.settings.theme_preset = e.target.value || 'perrito'; persistTheme(); renderAll(); });
-    $('#settingThemePreset').addEventListener('change',e=>{ state.settings.theme_preset = e.target.value || 'perrito'; persistTheme(); });
+    $('#quickThemePreset').addEventListener('change',e=>{ state.settings.theme_preset = e.target.value || 'celeste'; persistTheme(); renderAll(); });
+    $('#settingThemePreset').addEventListener('change',e=>{ state.settings.theme_preset = e.target.value || 'celeste'; persistTheme(); });
     $('#themeToggle').addEventListener('click',()=>{ state.themeMode = state.themeMode==='dark'?'light':'dark'; persistTheme(); renderAll(); });
     $('#movementSearch').addEventListener('input',renderMovements); $('#movementType').addEventListener('change',renderMovements);
     $('#reloadBtn').addEventListener('click',()=>loadData(true));
