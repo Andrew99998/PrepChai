@@ -741,11 +741,22 @@
     if (!session) { unsubscribeRealtime(); showScreen('authScreen'); return; }
     setLoading('Cargando usuario...', 'Buscando tu hogar y sincronizando datos.');
     state.profile = { id: session.user.id, email: session.user.email };
-    const memberRes = await supabase.from('household_members').select('role, household_id, households(id,name)').eq('user_id', session.user.id).limit(1);
-    if (memberRes.error) { console.error(memberRes.error); toast(memberRes.error.message); showScreen('authScreen'); return; }
-    if (!memberRes.data || !memberRes.data.length) { showScreen('setupScreen'); return; }
-    state.memberRole = memberRes.data[0].role;
-    state.household = memberRes.data[0].households;
+    const memberRes = await supabase.rpc('get_my_household');
+    if (memberRes.error) {
+      console.error(memberRes.error);
+      toast(memberRes.error.message || 'No se pudo consultar el hogar');
+      showScreen('authScreen');
+      return;
+    }
+    if (!memberRes.data || !memberRes.data.length) {
+      showScreen('setupScreen');
+      return;
+    }
+    state.memberRole = memberRes.data[0].member_role;
+    state.household = {
+      id: memberRes.data[0].household_id,
+      name: memberRes.data[0].household_name
+    };
     await loadData(true);
     subscribeRealtime();
     showScreen('appScreen');
@@ -939,4 +950,3 @@
 </script>
 </body>
 </html>
-<!-- republicar sitio -->
